@@ -17,7 +17,7 @@ function App() {
         <Route path='/' element={<Navigate to="/login" />} />
         <Route path='/Register' element={<Register />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/Home' element={<HomePage />} /> {/* Changed path to /Home */}
+        <Route path='/Home' element={<HomePage />} />
         <Route path='/About' element={<About />} />
         <Route path='*' element={<Pagenotfound />} />
       </Routes>
