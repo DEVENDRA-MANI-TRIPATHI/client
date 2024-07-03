@@ -1,15 +1,18 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Header from './Header';
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
+  const location = useLocation();
+  const hideHeaderRoutes = ['/login', '/register']; // Routes where Header should be hidden
+  const shouldHideHeader = hideHeaderRoutes.includes(location.pathname.toLowerCase());
+
   return (
     <div>
-          <Header />
-          <main> {children}</main>
-          <Footer />
+      {!shouldHideHeader && <Header />}
+      <main>{children}</main>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
