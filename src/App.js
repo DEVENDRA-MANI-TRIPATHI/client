@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/Home.js';
-import About from './pages/About';
+import TempPage from './pages/TempPage.js';
 import Pagenotfound from './pages/Pagenotfound';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
@@ -20,7 +20,7 @@ function App() {
           <Route path='/Register' element={<Register />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/Home' element={<HomePage />} />
-          <Route path='/About' element={<About />} />
+          <Route path='/temp' element={<TempPage />} />
           <Route path='*' element={<Pagenotfound />} />
         </Routes>
         <ToastContainer />

@@ -28,5 +28,19 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
+
+}
+.card-values {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vertical-values {
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-value {
+  margin: 5px;
 }
 

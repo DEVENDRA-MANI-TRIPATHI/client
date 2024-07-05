@@ -79,7 +79,7 @@ const Home = () => {
             imageUrl={weather}
             imageStyle={{ width: '100%', margin: 'auto' }}
             values={[`${temperatureValue} ${temperatureUnit}`]}
-            valueStyles={[{ color: 'white', fontSize: '34px', margin: '100px' }]}
+            valueStyles={[{ color: 'white', fontSize: '34px', position:'relative',left:'100px' }]}
             className="Home-temp"
           />
         </div>
