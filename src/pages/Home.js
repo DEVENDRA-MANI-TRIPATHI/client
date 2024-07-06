@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { database } from '../components/firebaseconfig.js';
 import { ref, onValue } from 'firebase/database';
-import Card from './Card.js';
+import Card from '../components/Cards/homeCard.js';
 import '../styles/Home.css';
 import weather from '../components/Images/weather.png';
 import Aqi from '../components/Images/Fresh AQI.png';
@@ -17,6 +18,13 @@ const Home = () => {
   const [sensors, setSensors] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  
+  const navigate = useNavigate();
+
+  const navigateToPage = (path) => {
+    navigate(path);
+  };
 
   useEffect(() => {
     const weatherStationRef = ref(database, 'Weather-station-testing');
@@ -73,7 +81,7 @@ const Home = () => {
     <div className="container">
       <video className='background-video' src={Weatherbackground} autoPlay loop muted />
       <div className="left">
-        <div className="left-top">
+        <div className="left-top" onClick={()=> navigateToPage('/temp')}>
           <Card
             title="Weather"
             imageUrl={weather}
@@ -83,13 +91,13 @@ const Home = () => {
             className="Home-temp"
           />
         </div>
-        <div className="left-down">
+        <div className="left-down" onClick={() => navigateToPage('/aqi')}>
           <Card
             title="AQI"
             imageUrl={Aqi}
             imageStyle={{ width: '50%', margin: '0 auto' }}
             values={[`${aqiValue}`]}
-            valueStyles={[{ color: 'white', fontSize: '45px', margin: '130px' }]}
+            valueStyles={[{ color: 'white', fontSize: '45px', position:'relative',left:'110px' ,top:'20px'}]}
             className="custom-card-class"
           />
         </div>
@@ -102,7 +110,7 @@ const Home = () => {
               imageUrl={wind}
               imageStyle={{ width: '90%', margin: '5px',position:'relative',top:'120px' }}
               values={[`${windSpeedValue} ${windSpeedUnit}`]}
-              valueStyles={[{ color: 'white', fontSize: '34px', position:'relative',top:'-110px',left:'240px' }]}
+              valueStyles={[{ color: 'white', fontSize: '30px', position:'relative',bottom:'120px',left:'240px' }]}
               className="custom-card-class"
             />
           </div>
@@ -112,7 +120,7 @@ const Home = () => {
               imageUrl={visibility}
               imageStyle={{ width: '90%', margin: 'auto',position:'relative',top:'100px' }}
               values={[`${visibilityValue} ${visibilityUnit}`]}
-              valueStyles={[{ color: 'white', fontSize: '34px',position:'relative',top:'-120px',left:'300px' }]}
+              valueStyles={[{ color: 'white', fontSize: '30px',position:'relative',bottom:'130px',left:'350px' }]}
               className="custom-card-class"
             />
           </div>
@@ -125,7 +133,7 @@ const Home = () => {
                 imageUrl={HumidityImg}
                 imageStyle={{ width: '40%', margin: 'auto' }}
                 values={[`${humidityValue} ${humidityUnit}`]}
-                valueStyles={[{color: 'white', fontSize: '34px',position:'relative',top:'-190px',left:'300px'  }]}
+                valueStyles={[{color: 'white', fontSize: '30px',position:'relative',bottom:'190px',left:'300px'  }]}
               />
             </div>
             <div className="right-down-left-down">
@@ -134,7 +142,7 @@ const Home = () => {
                 imageUrl={Rain}
                 imageStyle={{ width: '30%', margin: 'auto' }}
                 values={[`${rainmeterValue} ${rainmeterUnit}`]}
-                valueStyles={[{ color: 'white', fontSize: '34px', margin: '20px' }]}
+                valueStyles={[{ color: 'white', fontSize: '30px',position:'relative',left:'300px',bottom:'160px' }]}
                 className="custom-card-class"
               />
             </div>
@@ -146,7 +154,7 @@ const Home = () => {
                 imageUrl={atm}
                 imageStyle={{ width: '90%', margin: 'auto',position:'relative',top:'90px' }}
                 values={[`${pressureValue} ${pressureUnit}`]}
-                valueStyles={[{ color: 'white', fontSize: '34px', position:'relative',left:'70px',top:'-70px' }]}
+                valueStyles={[{ color: 'white', fontSize: '30px', position:'relative',left:'75px',bottom:'70px' }]}
                 className="custom-card-class"
               />
             </div>

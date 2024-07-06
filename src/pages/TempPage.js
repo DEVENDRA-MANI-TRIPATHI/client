@@ -1,179 +1,135 @@
-import React, { useEffect, useState } from 'react'
-import { database } from '../components/firebaseconfig.js';
-import { ref, onValue } from 'firebase/database';
+import React from 'react';
+import WeatherCard from '../components/Cards/tempCard.js';
 import '../styles/tempPage.css'
-import weather from '../components/Images/weather.png';
-import Card from './Card';
+import tempimg from '../components/Images/weather.png';
 import Weatherbackground from '../components/Images/new.webm';
 
 const TempPage = () => {
-
-    const [sensors, setSensors] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const weatherStationRef = ref(database, 'Weather-station-testing');
-        onValue(
-            weatherStationRef,
-            (snapshot) => {
-                const data = snapshot.val();
-                setSensors(data);
-                setLoading(false);
-            },
-            (error) => {
-                setError(error);
-                setLoading(false);
-            }
-        );
-    }, []);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error loading data: {error.message}</div>;
-    }
-
-    const {
-        DHT11,
-    } = sensors || {};
-
-    const temperatureValue = DHT11?.Temperature?.value;
-    const temperatureUnit = DHT11?.Temperature?.unit;
-    const humidityValue = DHT11?.Humidity?.value;
-    const humidityUnit = DHT11?.Humidity?.unit;
-
     return (
-        <div className='temp-container'>
+        <div className="temp-container">
             <video className='background-video' src={Weatherbackground} autoPlay loop muted />
-            <div className='top-container'>
-                <Card
-                    title="Today"
-                    description="This is the description for card 1."
-                    imageUrl={weather}
-                    imageStyle={{ width: '100%' }}
-                    values={[`${temperatureValue} ${temperatureUnit}
-                        ${humidityValue} ${humidityUnit}`]}
-                    valueStyles={[{ color: 'white', fontSize: '34px', margin: '20px' }]}
-                    className="tempcard today"
+            <div className='top-temp-container'>
+                <WeatherCard
+                    imageSrc={tempimg}
+                    imageStyle={{width:'100%'}}
+                    day="TODAY"
+                    date="JUN 06"
+                    temperature="45°C"
+                    condition="PARTLY CLOUDY"
+                    humidity="29%"
+                    style={{width: '300px' }}
                 />
-
-                <Card
-                    title=""
-                    description="This is the description for card 1."
-                    imageUrl={weather}
-                    imageStyle={{ width: '100%' }}
-                    values={[`${temperatureValue} ${temperatureUnit}
-                        ${humidityValue} ${humidityUnit}`]}
-                    valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                    className="tempcard"
+                <WeatherCard
+                    imageSrc={tempimg}
+                    imageStyle={{width:'100%'}}
+                    date="JUN 06"
+                    temperature="45°C"
+                    condition="PARTLY CLOUDY"
+                    humidity="29%"
+                    style={{width: '150px' }}
                 />
-                <Card
-                    title=""
-                    description="This is the description for card 1."
-                    imageUrl={weather}
-                    imageStyle={{ width: '100%' }}
-                    values={[`${temperatureValue} ${temperatureUnit}
-                        ${humidityValue} ${humidityUnit}`]}
-                    valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                    className="tempcard"
+                <WeatherCard
+                    imageSrc={tempimg}
+                    imageStyle={{width:'100%'}}
+                    day="TODAY"
+                    date="JUN 06"
+                    temperature="45°C"
+                    condition="PARTLY CLOUDY"
+                    humidity="29%"
+                    style={{width: '150px' }}
                 />
-                <Card
-                    title=""
-                    description="This is the description for card 1."
-                    imageUrl={weather}
-                    imageStyle={{ width: '100%' }}
-                    values={[`${temperatureValue} ${temperatureUnit}
-                        ${humidityValue} ${humidityUnit}`]}
-                    valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                    verticalValues={true}
-                    className="tempcard"
+                <WeatherCard
+                    imageSrc={tempimg}
+                    imageStyle={{width:'100%'}}
+                    day="TODAY"
+                    date="JUN 06"
+                    temperature="45°C"
+                    condition="PARTLY CLOUDY"
+                    humidity="29%"
+                    style={{width: '150px' }}
                 />
-                <Card
-                    title=""
-                    description="This is the description for card 1."
-                    imageUrl={weather}
-                    imageStyle={{ width: '100%' }}
-                    values={[`${temperatureValue} ${temperatureUnit}
-                        ${humidityValue} ${humidityUnit}`]}
-                    valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                    className="tempcard"
+                <WeatherCard
+                    imageSrc={tempimg}
+                    imageStyle={{width:'100%'}}
+                    day="TODAY"
+                    date="JUN 06"
+                    temperature="45°C"
+                    condition="PARTLY CLOUDY"
+                    humidity="29%"
+                    style={{width: '150px' }}
                 />
-                <Card
-                    title=""
-                    description="This is the description for card 1."
-                    imageUrl={weather}
-                    imageStyle={{ width: '100%' }}
-                    values={[`${temperatureValue} ${temperatureUnit}
-                        ${humidityValue} ${humidityUnit}`]}
-                    valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                    className="tempcard"
+                <WeatherCard
+                    imageSrc={tempimg}
+                    imageStyle={{width:'100%'}}
+                    day="TODAY"
+                    date="JUN 06"
+                    temperature="45°C"
+                    condition="PARTLY CLOUDY"
+                    humidity="29%"
+                    style={{width: '150px' }}
                 />
-                <Card
-                    title=""
-                    description="This is the description for card 1."
-                    imageUrl={weather}
-                    imageStyle={{ width: '100%' }}
-                    values={[`${temperatureValue} ${temperatureUnit}
-                        ${humidityValue} ${humidityUnit}`]}
-                    valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                    className="tempcard"
+                <WeatherCard
+                    imageSrc={tempimg}
+                    imageStyle={{width:'100%'}}
+                    day="TODAY"
+                    date="JUN 06"
+                    temperature="45°C"
+                    condition="PARTLY CLOUDY"
+                    humidity="29%"
+                    style={{width: '150px' }}
                 />
-
             </div>
-            <div className='bottom-container'>
-                <div className='bottom-top-container'>
-                    <Card
-                        title="Max. Temperature"
-                        values={[`${temperatureValue} ${temperatureUnit}`]}
-                        valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                        description="Date:-"
-                        className="temp-card"
-                    />
-                    <Card
-                        title="Min. Temperature"
-                        values={[`${temperatureValue} ${temperatureUnit}`]}
-                        valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                        description="Date:-"
-                        className="temp-card"
-                    />
-                    <Card
-                        title="Avg. Temperature"
-                        values={[`${temperatureValue} ${temperatureUnit}`]}
-                        valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                        description="Date:-"
-                        className="temp-card"
-                    />
+            <div className='down-temp-container'>
+                <div className='max-temp'>
+                    <div class="tempcard-content">
+                        <div class="tempcard-title">MAX. <br/>TEMPERATURE</div>
+                        <div class="tempcard-date">MAY 29</div>
+                        <div class="tempcard-value">210</div>
+                    </div>
+
                 </div>
-                <div className='bottom-down-container'>
-                    <Card
-                        title="Max. Humidity"
-                        values={[`${humidityValue} ${humidityUnit}`]}
-                        valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                        description="Date:-"
-                        className="temp-card"
-                    />
-                    <Card
-                        title="Min. Humidity"
-                        values={[`${humidityValue} ${humidityUnit}`]}
-                        valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                        description="Date:-"
-                        className="temp-card"
-                    />
-                    <Card
-                        title="Avg. Humidity"
-                        values={[`${humidityValue} ${humidityUnit}`]}
-                        valueStyles={[{ color: 'white', fontSize: '30px', margin: '5px' }]}
-                        description="Date:-"
-                        className="temp-card"
-                    />
+                <div className='min-temp'>
+                    <div class="tempcard-content">
+                        <div class="tempcard-title">MIN. <br/>TEMPERATURE</div>
+                        <div class="tempcard-date">MAY 29</div>
+                        <div class="tempcard-value">210</div>
+                    </div>
+                </div>
+                <div className='avg-temp'>
+                    <div class="tempcard-content">
+                        <div class="tempcard-title">AVG. <br/>TEMPERATURE</div>
+                        <div class="tempcard-date">MAY 29</div>
+                        <div class="tempcard-value">210</div>
+                    </div>
+                </div>
+            </div>
+            <div className='down-temp-container'>
+                <div className='max-temp'>
+                    <div class="tempcard-content">
+                        <div class="tempcard-title">MAX. <br/>HUMIDITY</div>
+                        <div class="tempcard-date">MAY 29</div>
+                        <div class="tempcard-value">210</div>
+                    </div>
+
+                </div>
+                <div className='min-temp'>
+                    <div class="tempcard-content">
+                        <div class="tempcard-title">MIN. <br/>HUMIDITY</div>
+                        <div class="tempcard-date">MAY 29</div>
+                        <div class="tempcard-value">210</div>
+                    </div>
+                </div>
+                <div className='avg-temp'>
+                    <div class="tempcard-content">
+                        <div class="tempcard-title">AVG. <br/>HUMIDITY</div>
+                        <div class="tempcard-date">MAY 29</div>
+                        <div class="tempcard-value">210</div>
+                    </div>
                 </div>
             </div>
 
         </div>
-    )
-}
+    );
+};
 
-export default TempPage
+export default TempPage;

@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/Layout/Routes/Private';
 import Layout from './components/Layout/Layout.js';
+import AqiPage from './pages/Aqi.js';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/Login' element={<Login />} />
           <Route path='/Home' element={<HomePage />} />
           <Route path='/temp' element={<TempPage />} />
+          <Route path='/Aqi' element={<AqiPage />} />
           <Route path='*' element={<Pagenotfound />} />
         </Routes>
         <ToastContainer />

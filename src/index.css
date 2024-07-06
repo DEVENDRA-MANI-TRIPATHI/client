@@ -1,15 +1,11 @@
-
-/* ===================Register Page =========== */
-/* .register{
-  display: flex;
-  align-items:center;
-  justify-content: center;
-  height: 70vh;
-  flex-direction: column;
+html {
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
 }
-.video{
-  height: 100%;
-  width: 10%;
-  align-items: center;
-  align-content: center;
-} */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

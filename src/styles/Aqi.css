@@ -1,53 +1,97 @@
 .Aqi-container {
-    margin-top: 55px;
     width: 100vw;
-    height: 60vh;
+    height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+
 }
 
-.Aqi-card {
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: aqua;
-    height: 60vh;
-    width: 130px;
+.Aqi-top-container {
+    width: 1300px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
-.Aqi-card:hover,.Aqi-card-bottom:hover{
-    transform: scale(1.05);
+
+.api-down-container {
+    width: 100wh;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.today {
+
+.max-aqi {
     width: 400px;
+    height: 150px;
+    background-color: #1C1B1F80;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.min-aqi {
+    width: 400px;
+    height: 150px;
+    background-color: #1C1B1F80;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avg-aqi {
+    width: 400px;
+    height: 150px;
+    background-color: #1C1B1F80;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avg-aqi:hover,
+.max-aqi:hover,
+.min-aqi:hover {
+    transform: scale(1.03);
+}
+
+.aqicard-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.aqicard-title {
+    color: #ff9900;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.aqicard-date {
+    color: #ffffff;
+    font-size: 30px;
     text-align: center;
 }
 
-.container-bottom {
-    width: 100vw;
-    height: 18vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+.aqicard-value {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 5px;;
 }
-
-.Aqi-card-bottom {
-    border-radius: 10px;
-    background-color: aqua;
-    height: 18vh;
-    width: 400px;
-    margin-left: 25px;
-    margin-right: 25px;
-}
-
-/* .bar {
-    border-radius: 10px;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 25%, rgba(0, 212, 255, 1) 100%);
-    width: 1305px;
-    height: 10px;
-    margin-left: 78px;
-    padding-right: auto;
-    margin-top: 50px;
-} */

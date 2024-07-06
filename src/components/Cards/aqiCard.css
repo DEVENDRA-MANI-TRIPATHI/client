@@ -1,0 +1,51 @@
+.Aqi-card {
+    width: 300px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin:5px;
+}
+
+.Aqi-card:hover{
+    transform: scale(1.03);
+}
+
+.aqi-header {
+    display: flex;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.aqi-logo {
+    height: 50px;
+}
+
+.aqi-value {
+    font-size: 48px;
+    font-weight: bold;
+    color: #A3E045; /* Bright green color for AQI value */
+}
+
+.aqi-date {
+    text-align: center;
+    font-size: 24px;
+    padding: 10px 0;
+}
+
+.aqi-content {
+    padding: 20px;
+}
+
+.aqi-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    padding-bottom: 5px;
+}
+
+.aqi-item span {
+    font-size: 18px;
+}
