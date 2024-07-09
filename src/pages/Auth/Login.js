@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './Register.css'; // Import the CSS file for styling
+import './Register.css';
 import { useAuth } from '../../context/auth';
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`, { email, password });
-      console.log("Response: ", res); // Log the response to check it
+      console.log("Response: ", res);
       if (res.data.success) {
         toast.success(res.data.message);
         setAuth({

@@ -23,6 +23,7 @@ function App() {
           <Route path='/Home' element={<HomePage />} />
           <Route path='/temp' element={<TempPage />} />
           <Route path='/Aqi' element={<AqiPage />} />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='*' element={<Pagenotfound />} />
         </Routes>
         <ToastContainer />
