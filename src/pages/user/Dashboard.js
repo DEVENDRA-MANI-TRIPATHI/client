@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../styles/dashboard.css';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const [user, setUser] = useState(null);
@@ -22,7 +23,7 @@ const Dashboard = () => {
         if (savedUsers) {
             setSchools(JSON.parse(savedUsers));
         }
-        
+
         fetchUsers();
         fetchSchools();
     }, []);
@@ -123,16 +124,32 @@ const Dashboard = () => {
             });
     };
 
+    const handleDeleteSchool = (schoolId) => {
+        console.log('Delete user with ID:', schoolId);
+        const auth = JSON.parse(localStorage.getItem('auth'));
+        axios.delete(`http://localhost:8080/api/v1/schools/${schoolId}`, {
+            headers: {
+                Authorization: `Bearer ${auth.token}`
+            }
+        })
+            .then(response => {
+                console.log('User deleted successfully:', response.data);
+                fetchSchools();
+            })
+            .catch(error => {
+                console.error('Error deleting user:', error);
+            });
+    };
+
     if (!user) {
         return <div>Loading...</div>;
     }
-
     return (
         <div className="dashboard-container">
             <aside className="sidebar">
                 <div className="sidebar-header">
                     <MountainIcon className="icon" />
-                    <a href="/home">Aviotron</a>
+                    <a href="/home">Home</a>
                 </div>
                 <nav className="sidebar-nav">
                     <a href="#" className="nav-link" onClick={() => setView('dashboard')}>
@@ -192,7 +209,13 @@ const Dashboard = () => {
                 )}
                 {view === 'users' && (
                     <div className="users-container">
-                        <h1 className="users-heading">Registered Users</h1>
+                        <div className='newUser-container'>
+                            <h1 className="users-heading">Registered Users</h1>
+                            <button className='newUser-button'>
+                                <Link to="/Register">add new user</Link>
+                            </button>
+                        </div>
+
                         {console.log('Current users state:', users)}
                         {loading ? (
                             <div className="loading-message">Loading users...</div>
@@ -233,7 +256,7 @@ const Dashboard = () => {
                                         {/* <p className="school-info">Location: Lat {school.location.latitude}, Long {school.location.longitude}</p> */}
                                         <div className='school-actions'>
                                             <button className='action-button update-button'>Update</button>
-                                            <button className='action-button delete-button'>Delete</button>
+                                            <button onClick={() => handleDeleteSchool(school.id)} className='action-button delete-button'>Delete</button>
 
                                         </div>
                                     </li>

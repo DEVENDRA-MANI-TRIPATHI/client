@@ -198,7 +198,7 @@ body, html {
     margin-top: 10px;
 }
 
-.action-button {
+.action-button,.newUser-button {
     cursor: pointer;
     padding: 8px 12px;
     border: none;
@@ -208,7 +208,7 @@ body, html {
     transition: background-color 0.3s ease;
 }
 
-.action-button.update-button {
+.action-button.update-button,.newUser-button {
     background-color: #007bff;
     color: #fff;
 }
@@ -218,15 +218,22 @@ body, html {
     color: #fff;
 }
 
-.action-button:hover {
+.action-button:hover,.newUser-button:hover {
     background-color: #0056b3;
 }
 
-.action-button:disabled {
+.action-button:disabled ,.newUser-button:disabled{
     cursor: not-allowed;
     opacity: 0.7;
 }
 
-.action-button:disabled:hover {
+.action-button:disabled:hover,.newUser-button:disabled:hover {
     background-color: initial;
 }
+.newUser-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    margin:10px;
+}
+
