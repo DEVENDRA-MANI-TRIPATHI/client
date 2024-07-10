@@ -14,6 +14,17 @@ const Dashboard = () => {
         if (auth && auth.token) {
             setUser(auth.user);
         }
+        const savedSchools = localStorage.getItem('schools');
+        if (savedSchools) {
+            setSchools(JSON.parse(savedSchools));
+        }
+        const savedUsers = localStorage.getItem('user');
+        if (savedUsers) {
+            setSchools(JSON.parse(savedUsers));
+        }
+        
+        fetchUsers();
+        fetchSchools();
     }, []);
 
     const handleUsersClick = () => {
@@ -79,48 +90,38 @@ const Dashboard = () => {
     };
 
     const handleUpdateUser = (userId) => {
-        // Implement update user logic here
         console.log('Update user with ID:', userId);
-        // Example of how to update user in backend (replace with actual API endpoint)
         const auth = JSON.parse(localStorage.getItem('auth'));
-        axios.put(`http://localhost:8080/api/v1/users/${userId}`, {}, {
+        axios.put(`http://localhost:8080/api/v1/user/${userId}`, {}, {
             headers: {
                 Authorization: `Bearer ${auth.token}`
             }
         })
             .then(response => {
                 console.log('User updated successfully:', response.data);
-                // Optionally, update users state after successful update
                 fetchUsers();
             })
             .catch(error => {
                 console.error('Error updating user:', error);
-                // Handle error
             });
     };
 
     const handleDeleteUser = (userId) => {
-        // Implement delete user logic here
         console.log('Delete user with ID:', userId);
-        // Example of how to delete user in backend (replace with actual API endpoint)
         const auth = JSON.parse(localStorage.getItem('auth'));
-        axios.delete(`http://localhost:8080/api/v1/users/${userId}`, {
+        axios.delete(`http://localhost:8080/api/v1/user/${userId}`, {
             headers: {
                 Authorization: `Bearer ${auth.token}`
             }
         })
             .then(response => {
                 console.log('User deleted successfully:', response.data);
-                // Optionally, update users state after successful delete
                 fetchUsers();
             })
             .catch(error => {
                 console.error('Error deleting user:', error);
-                // Handle error
             });
     };
-
-    // Similar functions for schools: handleUpdateSchool, handleDeleteSchool
 
     if (!user) {
         return <div>Loading...</div>;
@@ -152,7 +153,7 @@ const Dashboard = () => {
                 <header className="header">
                     <div className="header-left">
                         <MountainIcon className="icon" />
-                        <span>Hello! {user.name}</span>
+                        <h3>Hello! {user.name}</h3>
                     </div>
                 </header>
                 {view === 'dashboard' && (
@@ -226,10 +227,15 @@ const Dashboard = () => {
                                 {schools.map(school => (
                                     <li key={school.id} className="school-item">
                                         <h3 className="school-name">{school.name}</h3>
-                                        <p className="school-info">Address: {school.address}</p>
-                                        <p className="school-info">Number of Students: {school.numOfStudents}</p>
-                                        <p className="school-info">Aerobay Students: {school.noOfAerobayStudents || 'N/A'}</p>
-                                        <p className="school-info">Location: Lat {school.location.latitude}, Long {school.location.longitude}</p>
+                                        <span className="school-info">Address: {school.address}</span>
+                                        <span className="school-info">Number of Students: {school.numOfStudents}</span>
+                                        <span className="school-info">Aerobay Students: {school.noOfAerobayStudents || 'N/A'}</span>
+                                        {/* <p className="school-info">Location: Lat {school.location.latitude}, Long {school.location.longitude}</p> */}
+                                        <div className='school-actions'>
+                                            <button className='action-button update-button'>Update</button>
+                                            <button className='action-button delete-button'>Delete</button>
+
+                                        </div>
                                     </li>
                                 ))}
                             </ul>

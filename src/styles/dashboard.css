@@ -61,6 +61,7 @@ body, html {
     border-bottom: 1px solid #e9ecef;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #0056b3;
 }
 
 .header-left {
@@ -75,49 +76,11 @@ body, html {
     gap: 20px;
 }
 
-.search-bar {
-    position: relative;
-}
-
-.search-bar .icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #6c757d;
-}
-
-.search-bar input {
-    padding: 5px 10px 5px 30px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: #e9ecef;
-}
 
 .user-menu {
     position: relative;
 }
 
-.avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 40px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 4px;
-}
-
-.user-menu:hover .dropdown-menu {
-    display: block;
-}
 
 .dashboard-card-container {
     display: grid;
@@ -179,7 +142,15 @@ body, html {
     color: #6c757d;
     margin-left: 10px;
 }
-.users-container, .schools-container {
+.schools-container{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.users-container{
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -223,7 +194,7 @@ body, html {
     margin-right: 10px;
 }
 
-.user-actions {
+.user-actions,.schlool-actions {
     margin-top: 10px;
 }
 
