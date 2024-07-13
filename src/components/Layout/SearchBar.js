@@ -9,7 +9,7 @@ const SearchBar = () => {
   useEffect(() => {
     const fetchSchoolNames = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/v1/schools');
+        const response = await fetch(`${process.env.REACT_APP_API}/api/v1/schools`);
         const data = await response.json();
         console.log('API response:', data);
         if (data.success) {

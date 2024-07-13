@@ -43,7 +43,7 @@ const Dashboard = () => {
     const fetchUsers = () => {
         setLoading(true);
         const auth = JSON.parse(localStorage.getItem('auth'));
-        axios.get('http://localhost:8080/api/v1/alluser', {
+        axios.get(`${process.env.REACT_APP_API}/api/v1/alluser`, {
             headers: {
                 Authorization: `Bearer ${auth.token}`
             }
@@ -68,7 +68,7 @@ const Dashboard = () => {
     const fetchSchools = () => {
         setLoading(true);
         const auth = JSON.parse(localStorage.getItem('auth'));
-        axios.get('http://localhost:8080/api/v1/schools', {
+        axios.get(`${process.env.REACT_APP_API}/api/v1/schools`, {
             headers: {
                 Authorization: `Bearer ${auth.token}`
             }
