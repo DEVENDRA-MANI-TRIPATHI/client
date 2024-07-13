@@ -93,7 +93,7 @@ const Dashboard = () => {
     const handleUpdateUser = (userId) => {
         console.log('Update user with ID:', userId);
         const auth = JSON.parse(localStorage.getItem('auth'));
-        axios.put(`http://localhost:8080/api/v1/user/${userId}`, {}, {
+        axios.put(`${process.env.REACT_APP_API}/api/v1/user/${userId}`, {}, {
             headers: {
                 Authorization: `Bearer ${auth.token}`
             }
@@ -110,7 +110,7 @@ const Dashboard = () => {
     const handleDeleteUser = (userId) => {
         console.log('Delete user with ID:', userId);
         const auth = JSON.parse(localStorage.getItem('auth'));
-        axios.delete(`http://localhost:8080/api/v1/user/${userId}`, {
+        axios.delete(`${process.env.REACT_APP_API}/api/v1/user/${userId}`, {
             headers: {
                 Authorization: `Bearer ${auth.token}`
             }
@@ -127,7 +127,7 @@ const Dashboard = () => {
     const handleDeleteSchool = (schoolId) => {
         console.log('Delete user with ID:', schoolId);
         const auth = JSON.parse(localStorage.getItem('auth'));
-        axios.delete(`http://localhost:8080/api/v1/schools/${schoolId}`, {
+        axios.delete(`${process.env.REACT_APP_API}/api/v1/schools/${schoolId}`, {
             headers: {
                 Authorization: `Bearer ${auth.token}`
             }
