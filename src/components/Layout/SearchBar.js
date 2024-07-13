@@ -9,10 +9,14 @@ const SearchBar = () => {
   useEffect(() => {
     const fetchSchoolNames = async () => {
       try {
-        const response = await fetch('/schools/name');
+        const response = await fetch('http://localhost:8080/api/v1/schools');
         const data = await response.json();
+        console.log('API response:', data);
         if (data.success) {
-          setSchoolNames(data.schoolNames);
+          const names = data.schools.map(school => school.name);
+          console.log('Extracted names:', names);
+          setSchoolNames(names);
+          setFilteredNames(names);
         } else {
           console.error('Failed to fetch school names');
         }
@@ -32,10 +36,15 @@ const SearchBar = () => {
         name.toLowerCase().includes(value.toLowerCase())
       );
       setFilteredNames(filtered);
-      setDropdownVisible(true);
     } else {
-      setDropdownVisible(false);
+      setFilteredNames(schoolNames);
     }
+    setDropdownVisible(true);
+  };
+
+  const handleFocus = () => {
+    setFilteredNames(schoolNames);
+    setDropdownVisible(true);
   };
 
   const handleDropdownClick = (name) => {
@@ -63,6 +72,7 @@ const SearchBar = () => {
         className="search-bar"
         value={query}
         onChange={handleInputChange}
+        onFocus={handleFocus}
         placeholder="Search for schools..."
       />
       {dropdownVisible && (
