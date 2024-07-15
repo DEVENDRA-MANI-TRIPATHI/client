@@ -28,7 +28,7 @@ const Login = () => {
           token: res.data.token
         })
         localStorage.setItem('auth', JSON.stringify(res.data));
-        navigate("/Home"); // Ensure this is the correct route for your home page
+        navigate("/home"); // Ensure this is the correct route for your home page
       } else {
         toast.error(res.data.message);
       }

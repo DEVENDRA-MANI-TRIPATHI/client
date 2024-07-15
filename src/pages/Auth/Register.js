@@ -20,7 +20,7 @@ const Register = () => {
             console.log("Response: ", res);
             if (res.data.success) {
                 toast.success(res.data.message);
-                navigate("/Dashboard");
+                navigate("/dashboard");
             } else {
                 toast.error(res.data.message);
             }
