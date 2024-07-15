@@ -18,11 +18,11 @@ function App() {
       <Layout>
         <Routes>
           <Route path='/' element={<Navigate to="/login" />} />
-          <Route path='/Register' element={<Register />} />
-          <Route path='/Login' element={<Login />} />
-          <Route path='/Home' element={<HomePage />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/home' element={<HomePage />} />
           <Route path='/temp' element={<TempPage />} />
-          <Route path='/Aqi' element={<AqiPage />} />
+          <Route path='/aqi' element={<AqiPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='*' element={<Pagenotfound />} />
         </Routes>
