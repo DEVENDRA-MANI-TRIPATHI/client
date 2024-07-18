@@ -1,0 +1,58 @@
+/* userDashboard.css */
+
+.user-dashboard-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.user-dashboard-container,.h1{
+    color: #333;
+}
+.user-dashboard-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-dashboard-header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.user-dashboard-main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-details-container {
+    margin-bottom: 20px;
+}
+
+.user-details-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.user-info {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.user-info strong {
+    font-weight: bold;
+    color: #333;
+}

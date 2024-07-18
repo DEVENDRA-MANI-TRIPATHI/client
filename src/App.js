@@ -8,6 +8,7 @@ import Register from './pages/Auth/Register';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/user/Dashboard';
+import UserDashboard from './pages/user/userDashboard.js';
 import PrivateRoute from './components/Layout/Routes/Private';
 import Layout from './components/Layout/Layout.js';
 import AqiPage from './pages/Aqi.js';
@@ -17,7 +18,10 @@ function App() {
 
     const handleStationSelect = (stationName) => {
         setSelectedStation(stationName);
-    };
+  };
+  
+  const isAdmin = true;
+
   return (
     <>
       <Layout onStationSelect={handleStationSelect} >
@@ -28,7 +32,12 @@ function App() {
           <Route path='/home' element={<HomePage />} />
           <Route path='/temp' element={<TempPage />} />
           <Route path='/aqi' element={<AqiPage />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          {isAdmin && (
+            <Route path='/dashboard' element={<Dashboard />} />
+          )}
+          {!isAdmin && (
+            <Route path='/dashboard' element={<UserDashboard />} />
+          )}
           <Route path='*' element={<Pagenotfound />} />
         </Routes>
         <ToastContainer />
