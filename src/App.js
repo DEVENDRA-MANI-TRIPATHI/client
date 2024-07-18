@@ -20,7 +20,7 @@ function App() {
         setSelectedStation(stationName);
   };
   
-  const isAdmin = true;
+  const isAdmin = false;
 
   return (
     <>
