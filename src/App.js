@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/Home.js';
 import TempPage from './pages/TempPage.js';
@@ -11,11 +11,17 @@ import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/Layout/Routes/Private';
 import Layout from './components/Layout/Layout.js';
 import AqiPage from './pages/Aqi.js';
+import SearchBar from './components/Layout/SearchBar.js';
 
 function App() {
+  const [selectedStation, setSelectedStation] = useState(null);
+
+    const handleStationSelect = (stationName) => {
+        setSelectedStation(stationName);
+    };
   return (
     <>
-      <Layout>
+      <Layout onStationSelect={handleStationSelect} >
         <Routes>
           <Route path='/' element={<Navigate to="/login" />} />
           <Route path='/register' element={<Register />} />

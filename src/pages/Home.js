@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { database } from '../components/firebaseconfig.js';
 import { ref, onValue } from 'firebase/database';
@@ -13,13 +13,15 @@ import uv from '../components/Images/Uv.png';
 import visibility from '../components/Images/visibility.png';
 import atm from '../components/Images/atm.png';
 import Weatherbackground from '../components/Images/new.webm';
+import { StationContext } from '../context/StationContext.js'; // Import the StationContext
 
 const Home = () => {
   const [sensors, setSensors] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  
+  const { selectedStation } = useContext(StationContext); // Consume the StationContext
+
   const navigate = useNavigate();
 
   const navigateToPage = (path) => {
@@ -27,20 +29,29 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const weatherStationRef = ref(database, 'Weather-station-testing');
-    onValue(
-      weatherStationRef,
-      (snapshot) => {
-        const data = snapshot.val();
-        setSensors(data);
-        setLoading(false);
-      },
-      (error) => {
-        setError(error);
-        setLoading(false);
-      }
-    );
-  }, []);
+    if (!selectedStation) return;
+
+    const weatherStationRef = ref(database, selectedStation); // Use the selected station
+
+    const fetchData = () => {
+      onValue(
+        weatherStationRef,
+        (snapshot) => {
+          const data = snapshot.val();
+          setSensors(data);
+          setLoading(false);
+        },
+        (error) => {
+          setError(error);
+          setLoading(false);
+        }
+      );
+    };
+
+    fetchData();
+    return () => {
+    };
+  }, [selectedStation]);
 
   if (loading) {
     return <div>Loading...</div>;
