@@ -21,7 +21,7 @@ const Dashboard = () => {
         }
         const savedUsers = localStorage.getItem('user');
         if (savedUsers) {
-            setSchools(JSON.parse(savedUsers));
+            setUsers(JSON.parse(savedUsers));
         }
 
         fetchUsers();
