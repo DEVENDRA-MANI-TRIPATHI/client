@@ -76,7 +76,6 @@ const Home = () => {
   const humidityValue = DHT11?.Humidity?.value;
   const humidityUnit = DHT11?.Humidity?.unit;
   const aqiValue = MQ135?.AirQuality?.value;
-  const aqiUnit = MQ135?.AirQuality?.unit;
   const windSpeedValue = Anemometer?.WindSpeed?.value;
   const windSpeedUnit = Anemometer?.WindSpeed?.unit;
   const visibilityValue = BH1750?.LightIntensity?.value;
@@ -84,7 +83,6 @@ const Home = () => {
   const pressureValue = BMP180?.Pressure?.value;
   const pressureUnit = BMP180?.Pressure?.unit;
   const uvIndexValue = UVSensor?.UVIndex?.value;
-  const uvIndexUnit = UVSensor?.UVIndex?.unit;
   const rainmeterValue = Rainsensor?.RainValue?.value;
   const rainmeterUnit = Rainsensor?.RainValue?.unit;
 

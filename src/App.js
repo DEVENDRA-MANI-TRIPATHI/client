@@ -11,7 +11,6 @@ import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/Layout/Routes/Private';
 import Layout from './components/Layout/Layout.js';
 import AqiPage from './pages/Aqi.js';
-import SearchBar from './components/Layout/SearchBar.js';
 
 function App() {
   const [selectedStation, setSelectedStation] = useState(null);
