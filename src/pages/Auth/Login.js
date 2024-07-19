@@ -40,7 +40,7 @@ const Login = () => {
 
   return (
     <div className="register-container">
-      <ToastContainer /> {/* Add ToastContainer to display notifications */}
+      <ToastContainer /> 
       <video className='background-video' src={bgvid} autoPlay loop muted />
       <div className="register-content">
         <h1 className='register-header'>Login</h1>
