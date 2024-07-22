@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { database } from '../components/firebaseconfig.js';
 import { ref, onValue } from 'firebase/database';
 import WeatherCard from '../components/Cards/tempCard.js';
 import '../styles/tempPage.css';
 import tempimg from '../components/Images/weather.png';
 import Weatherbackground from '../components/Images/new.webm';
+import { StationContext } from '../context/StationContext.js'; // Import the StationContext
 
 const getCurrentDate = () => {
     const today = new Date();
@@ -19,22 +20,32 @@ const TempPage = () => {
     const [sensors, setSensors] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { selectedStation } = useContext(StationContext);
 
     useEffect(() => {
-        const weatherStationRef = ref(database, 'Weather-station-testing');
-        onValue(
+        if (!selectedStation) return;
+    
+        const weatherStationRef = ref(database, selectedStation); // Use the selected station
+    
+        const fetchData = () => {
+          onValue(
             weatherStationRef,
             (snapshot) => {
-                const data = snapshot.val();
-                setSensors(data);
-                setLoading(false);
+              const data = snapshot.val();
+              setSensors(data);
+              setLoading(false);
             },
             (error) => {
-                setError(error);
-                setLoading(false);
+              setError(error);
+              setLoading(false);
             }
-        );
-    }, []);
+          );
+        };
+    
+        fetchData();
+        return () => {
+        };
+      }, [selectedStation]);
 
     if (loading) {
         return <div>Loading...</div>;
