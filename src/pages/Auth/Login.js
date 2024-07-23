@@ -131,17 +131,18 @@ const Login = () => {
   const handleResetPasswordSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/forgot-password`, { email: resetEmail });
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/forgot-password`, { email: resetEmail });
       if (res.data.success) {
         toast.success("Password reset link has been sent to your email");
         setShowForgotPassword(false);
         setResetEmail("");
       } else {
         toast.error(res.data.message);
+        setShowForgotPassword(false);
       }
     } catch (error) {
       toast.error("Failed to send reset link. Please try again.");
-      // setShowForgotPassword(false);
+       setShowForgotPassword(false);
       console.log("Error: ", error);
     }
   };
