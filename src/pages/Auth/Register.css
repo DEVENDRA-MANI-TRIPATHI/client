@@ -25,7 +25,7 @@ body, html {
 }
 
 .register-content {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 70px;
     transform: translateY(-50%);
@@ -117,3 +117,46 @@ body, html {
     font-size: 12px;
     font-weight: bold;
 }
+.forgot-password-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background: rgba(46, 46, 46, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    color: white;
+    border: 1px solid #fff;
+  }
+
+  .btn-link {
+    background: none;
+    border: none;
+    color: #bbbbbb;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .btn-link:hover {
+    color: #0056b3;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #6C63FF; /* Button background color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
