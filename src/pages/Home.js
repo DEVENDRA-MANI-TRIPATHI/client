@@ -94,19 +94,19 @@ const Home = () => {
           <Card
             title="Weather"
             imageUrl={weather}
-            imageStyle={{ width: '100%', margin: 'auto' }}
+            imageClass={"card-temp-image"}
             values={[`${temperatureValue} ${temperatureUnit}`]}
-            valueStyles={[{ color: 'white', fontSize: '34px', position:'relative',left:'100px' }]}
+            valueClass={"card-temp-value"}
             className="Home-temp"
           />
         </div>
-        <div className="left-down" onClick={() => navigateToPage('/aqi')}>
+         <div className="left-down" onClick={() => navigateToPage('/aqi')}>
           <Card
             title="AQI"
             imageUrl={Aqi}
-            imageStyle={{ width: '50%', margin: '0 auto' }}
+            imageClass={"card-aqi-image"}
             values={[`${aqiValue}`]}
-            valueStyles={[{ color: 'white', fontSize: '45px', position:'relative',left:'110px' ,top:'20px'}]}
+            valueClass={"card-aqi-value"}
             className="custom-card-class"
           />
         </div>
@@ -117,9 +117,9 @@ const Home = () => {
             <Card
               title="Wind speed"
               imageUrl={wind}
-              imageStyle={{ width: '90%', margin: '5px',position:'relative',top:'120px' }}
+              imageClass={"card-wind-image"}
               values={[`${windSpeedValue} ${windSpeedUnit}`]}
-              valueStyles={[{ color: 'white', fontSize: '30px', position:'relative',bottom:'120px',left:'240px' }]}
+              valueClass={"card-wind-value"}
               className="custom-card-class"
             />
           </div>
@@ -127,9 +127,9 @@ const Home = () => {
             <Card
               title="Visibility"
               imageUrl={visibility}
-              imageStyle={{ width: '90%', margin: 'auto',position:'relative',top:'100px' }}
+              imageClass={"card-visibility-image"}
               values={[`${visibilityValue} ${visibilityUnit}`]}
-              valueStyles={[{ color: 'white', fontSize: '30px',position:'relative',bottom:'130px',left:'350px' }]}
+              valueClass={"card-visibility-value"}
               className="custom-card-class"
             />
           </div>
@@ -140,18 +140,18 @@ const Home = () => {
               <Card
                 title="Humidity"
                 imageUrl={HumidityImg}
-                imageStyle={{ width: '40%', margin: 'auto' }}
+                imageClass={"card-Humidity-image"}
                 values={[`${humidityValue} ${humidityUnit}`]}
-                valueStyles={[{color: 'white', fontSize: '30px',position:'relative',bottom:'190px',left:'300px'  }]}
+                valueClass={"card-Humidity-value"}
               />
             </div>
             <div className="right-down-left-down">
               <Card
                 title="Rainmeter"
                 imageUrl={Rain}
-                imageStyle={{ width: '30%', margin: 'auto' }}
+                imageClass={"card-Rainmeter-image"}
                 values={[`${rainmeterValue} ${rainmeterUnit}`]}
-                valueStyles={[{ color: 'white', fontSize: '30px',position:'relative',left:'300px',bottom:'160px' }]}
+                valueClass={"card-Rainmeter-value"}
                 className="custom-card-class"
               />
             </div>
@@ -161,9 +161,9 @@ const Home = () => {
               <Card
                 title="Pressure"
                 imageUrl={atm}
-                imageStyle={{ width: '90%', margin: 'auto',position:'relative',top:'90px' }}
+                imageClass={"card-Pressure-image"}
                 values={[`${pressureValue} ${pressureUnit}`]}
-                valueStyles={[{ color: 'white', fontSize: '30px', position:'relative',left:'75px',bottom:'70px' }]}
+                valueClass={"card-Pressure-value"}
                 className="custom-card-class"
               />
             </div>
@@ -171,15 +171,15 @@ const Home = () => {
               <Card
                 title="UV Index"
                 imageUrl={uv}
-                imageStyle={{ width: '16%', margin: 'auto' }}
+                imageClass={"card-uv-image"}
                 values={[`${uvIndexValue}`]}
-                valueStyles={[{ color: 'white', fontSize: '30px',margin:'30px' }]}
-                className="custom-card-class"
+                valueClass={"card-uv-value"}
+                className="custom-uv-class"
               />
             </div>
-          </div>
+          </div> 
         </div>
-      </div>
+      </div>   
     </div>
   );
 };

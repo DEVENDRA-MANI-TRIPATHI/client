@@ -1,7 +1,8 @@
-
+/* 
 .card {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 
@@ -44,3 +45,374 @@
   margin: 5px;
 }
 
+.card-temp-image{
+  width:100%;
+  margin: auto;
+}
+.card-temp-value{
+  color: white;
+  font-size: 34px;
+  position: relative;
+  left: 30%;
+}
+.card-aqi-image{
+  width:50%;
+  margin: auto;
+}
+.card-aqi-value{
+  margin: auto;
+  color: white;
+  font-size: 34px;
+  position: relative;
+  padding: 10%;
+}
+
+.card-wind-image{
+  width:100%;
+  margin-top:30% ;
+}
+.card-wind-value{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 34px;
+}
+.card-visibility-image{
+  width:100%;
+  margin-top: 20%;
+}
+.card-visibility-value{
+  position: absolute;
+  top:10px;
+  right: 10px;
+  color: white;
+  font-size: 34px;
+}
+.card-Rainmeter-image{
+  width:30%;
+  margin: auto;
+}
+.card-Rainmeter-value{
+  position: absolute;
+  top:10px;
+  right: 10px;
+  color: white;
+  font-size: 34px;
+}
+.card-Humidity-image{
+  width:30%;
+  margin: auto;
+}
+.card-Humidity-value{
+  position: absolute;
+  top:10px;
+  right: 10px;
+  color: white;
+  font-size: 34px;
+}
+.card-Pressure-image{
+  width:100%;
+  margin-top:10%;
+  padding: auto;
+}
+.card-Pressure-value{
+  position: absolute;
+  top:50%;
+  left: 20%;
+  color: white;
+  font-size: 34px;
+}
+.card-uv-image{
+  width:18%;
+  margin: auto;
+}
+.card-uv-value{
+  margin: auto;
+  color: white;
+  font-size: 34px;
+  position: relative;
+  padding: 10%;
+} */
+
+/* Base styles */
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card-content {
+  margin-top: 10px;
+}
+
+.card-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+.card-image {
+  display: block;
+}
+
+.card-value {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.card-values {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vertical-values {
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-value {
+  margin: 5px;
+}
+
+.card-temp-image {
+  width: 100%;
+  margin: auto;
+}
+
+.card-temp-value {
+  color: white;
+  font-size: 34px;
+  position: relative;
+  left: 30%;
+}
+
+.card-aqi-image {
+  width: 50%;
+  margin: auto;
+}
+
+.card-aqi-value {
+  margin: auto;
+  color: white;
+  font-size: 34px;
+  position: relative;
+  padding: 10%;
+}
+
+.card-wind-image {
+  width: 100%;
+  margin-top: 30%;
+}
+
+.card-wind-value {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 34px;
+}
+
+.card-visibility-image {
+  width: 100%;
+  margin-top: 20%;
+}
+
+.card-visibility-value {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 34px;
+}
+
+.card-Rainmeter-image {
+  width: 30%;
+  margin: auto;
+}
+
+.card-Rainmeter-value {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 34px;
+}
+
+.card-Humidity-image {
+  width: 30%;
+  margin: auto;
+}
+
+.card-Humidity-value {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 34px;
+}
+
+.card-Pressure-image {
+  width: 100%;
+  margin-top: 10%;
+  padding: auto;
+}
+
+.card-Pressure-value {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  color: white;
+  font-size: 34px;
+}
+
+.card-uv-image {
+  width: 18%;
+  margin: auto;
+}
+
+.card-uv-value {
+  margin: auto;
+  color: white;
+  font-size: 34px;
+  position: relative;
+  padding: 10%;
+}
+
+/* Responsive styles */
+@media (max-width: 1300px) {
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+  }
+
+  .card-value {
+    font-size: 28px;
+  }
+
+  .card-temp-value,
+  .card-wind-value,
+  .card-visibility-value,
+  .card-Rainmeter-value,
+  .card-Humidity-value,
+  .card-Pressure-value,
+  .card-uv-value {
+    font-size: 28px;
+  }
+  .card-Humidity-image {
+    width: 50%;
+    margin: auto;
+    padding: 5%;
+  }
+  .card-Rainmeter-image {
+    width: 50%;
+    margin: auto;
+    padding: 5%;
+  }
+  .card-uv-image {
+    width: 7.1%;
+    margin: auto;
+  }
+  .card-aqi-image {
+    width: 55%;
+    margin: auto;
+  }
+}
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+  }
+
+  .card-value {
+    font-size: 28px;
+  }
+
+  .card-temp-value,
+  .card-wind-value,
+  .card-visibility-value,
+  .card-Rainmeter-value,
+  .card-Humidity-value,
+  .card-Pressure-value,
+  .card-uv-value {
+    font-size: 28px;
+  }
+  .card-Humidity-image {
+    width: 50%;
+    margin: auto;
+    padding: 5%;
+  }
+  .card-Rainmeter-image {
+    width: 50%;
+    margin: auto;
+    padding: 5%;
+  }
+  .card-uv-image {
+    width: 7.1%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.8rem;
+  }
+
+  .card-value {
+    font-size: 24px;
+  }
+
+  .card-temp-value{
+    margin: auto;
+    font-size: 24px;
+  }
+  .card-wind-value,
+  .card-visibility-value,
+  .card-Rainmeter-value,
+  .card-Humidity-value,
+  .card-Pressure-value,
+  .card-uv-value {
+    font-size: 24px;
+  }
+
+  .card-Pressure-value {
+    top: 50%;
+    left: 30%;
+  }
+
+  .card-temp-value {
+    left: 20%;
+  }
+  .card-uv-image {
+    width: 5%;
+    margin: auto;
+  }
+  .card-Humidity-image {
+    width: 41%;
+    margin: auto;
+    padding: 5%;
+  }
+  .card-Rainmeter-image {
+    width: 40%;
+    margin: auto;
+    padding: 5%;
+  }
+}
