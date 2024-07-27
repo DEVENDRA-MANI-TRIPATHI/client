@@ -1,140 +1,3 @@
-/* 
-.card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-
-.card-content {
-  margin-top: 10px;
-}
-
-.card-title {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 1.5rem;
-  color: #fff;
-  margin-left: 10px;
-}
-
-.card-description {
-  font-size: 1rem;
-  color: #666;
-}
-.card-image {
-  display: block;
-}
-.card-value{
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-}
-.card-values {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.vertical-values {
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-value {
-  margin: 5px;
-}
-
-.card-temp-image{
-  width:100%;
-  margin: auto;
-}
-.card-temp-value{
-  color: white;
-  font-size: 34px;
-  position: relative;
-  left: 30%;
-}
-.card-aqi-image{
-  width:50%;
-  margin: auto;
-}
-.card-aqi-value{
-  margin: auto;
-  color: white;
-  font-size: 34px;
-  position: relative;
-  padding: 10%;
-}
-
-.card-wind-image{
-  width:100%;
-  margin-top:30% ;
-}
-.card-wind-value{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-  font-size: 34px;
-}
-.card-visibility-image{
-  width:100%;
-  margin-top: 20%;
-}
-.card-visibility-value{
-  position: absolute;
-  top:10px;
-  right: 10px;
-  color: white;
-  font-size: 34px;
-}
-.card-Rainmeter-image{
-  width:30%;
-  margin: auto;
-}
-.card-Rainmeter-value{
-  position: absolute;
-  top:10px;
-  right: 10px;
-  color: white;
-  font-size: 34px;
-}
-.card-Humidity-image{
-  width:30%;
-  margin: auto;
-}
-.card-Humidity-value{
-  position: absolute;
-  top:10px;
-  right: 10px;
-  color: white;
-  font-size: 34px;
-}
-.card-Pressure-image{
-  width:100%;
-  margin-top:10%;
-  padding: auto;
-}
-.card-Pressure-value{
-  position: absolute;
-  top:50%;
-  left: 20%;
-  color: white;
-  font-size: 34px;
-}
-.card-uv-image{
-  width:18%;
-  margin: auto;
-}
-.card-uv-value{
-  margin: auto;
-  color: white;
-  font-size: 34px;
-  position: relative;
-  padding: 10%;
-} */
-
 /* Base styles */
 .card {
   display: flex;
@@ -397,12 +260,18 @@
     top: 50%;
     left: 30%;
   }
+  .card-Pressure-image {
+    width: 100%;
+    padding: 1%;
+  }
 
   .card-temp-value {
-    left: 20%;
+    left: 5%;
+    padding: 5%;
+    font-size: 24px;
   }
   .card-uv-image {
-    width: 5%;
+    width: 10%;
     margin: auto;
   }
   .card-Humidity-image {

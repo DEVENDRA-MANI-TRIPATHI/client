@@ -4,6 +4,7 @@ import { ref, onValue } from 'firebase/database';
 import WeatherCard from '../components/Cards/tempCard.js';
 import '../styles/tempPage.css';
 import tempimg from '../components/Images/weather.png';
+import tempimg1 from '../components/Images/vecteezy_cold-temperature-illustration-design_34962392.png';
 import Weatherbackground from '../components/Images/new.webm';
 import { StationContext } from '../context/StationContext.js'; // Import the StationContext
 
@@ -70,72 +71,72 @@ const TempPage = () => {
             <div className='top-temp-container'>
             <WeatherCard
                     imageSrc={tempimg}
-                    imageStyle={{ width: '100%' }}
-                    day="TODAY"
+                    imageClass={"day0"}
+                    // day="TODAY"
                     date={getCurrentDate()}
                     temperature={formatTemperature(temperatureValue)}
-                    condition="PARTLY CLOUDY"
+                    // condition="PARTLY CLOUDY"
                     humidity={formatHumidity(humidityValue)}
-                    style={{ width: '300px' }}
+                    style={"day0-card-style"}
                 />
                 <WeatherCard
-                    imageSrc={tempimg}
-                    imageStyle={{ width: '100%' }}
+                    imageSrc={tempimg1}
+                    imageClass={"day1"}
                     date="JUN 06"
                     temperature="45°C"
-                    condition="PARTLY CLOUDY"
+                    // condition="PARTLY CLOUDY"
                     humidity="29%"
-                    style={{ width: '150px' }}
+                    style={"day1-card-style"}
                 />
                 <WeatherCard
-                    imageSrc={tempimg}
-                    imageStyle={{ width: '100%' }}
-                    day="TODAY"
+                    imageSrc={tempimg1}
+                    imageClass={"day1"}
+                    // day="TODAY"
                     date="JUN 06"
                     temperature="45°C"
-                    condition="PARTLY CLOUDY"
+                    // condition="PARTLY CLOUDY"
                     humidity="29%"
-                    style={{ width: '150px' }}
+                    style={"day1-card-style"}
                 />
                 <WeatherCard
-                    imageSrc={tempimg}
-                    imageStyle={{ width: '100%' }}
-                    day="TODAY"
+                    imageSrc={tempimg1}
+                    imageClass={"day1"}
+                    // day="TODAY"
                     date="JUN 06"
                     temperature="45°C"
-                    condition="PARTLY CLOUDY"
+                    // condition="PARTLY CLOUDY"
                     humidity="29%"
-                    style={{ width: '150px' }}
+                    style={"day1-card-style"}
                 />
                 <WeatherCard
-                    imageSrc={tempimg}
-                    imageStyle={{ width: '100%' }}
-                    day="TODAY"
+                    imageSrc={tempimg1}
+                    imageClass={"day1"}
+                    // day="TODAY"
                     date="JUN 06"
                     temperature="45°C"
-                    condition="PARTLY CLOUDY"
+                    // condition="PARTLY CLOUDY"
                     humidity="29%"
-                    style={{ width: '150px' }}
+                    style={"day1-card-style"}
                 />
                 <WeatherCard
-                    imageSrc={tempimg}
-                    imageStyle={{ width: '100%' }}
-                    day="TODAY"
+                    imageSrc={tempimg1}
+                    imageClass={"day1"}
+                    // day="TODAY"
                     date="JUN 06"
                     temperature="45°C"
-                    condition="PARTLY CLOUDY"
+                    // condition="PARTLY CLOUDY"
                     humidity="29%"
-                    style={{ width: '150px' }}
+                    style={"day1-card-style"}
                 />
                 <WeatherCard
-                    imageSrc={tempimg}
-                    imageStyle={{ width: '100%' }}
-                    day="TODAY"
+                    imageSrc={tempimg1}
+                    imageClass={"day1"}
+                    // day="TODAY"
                     date="JUN 06"
                     temperature="45°C"
-                    condition="PARTLY CLOUDY"
+                    // condition="PARTLY CLOUDY"
                     humidity="29%"
-                    style={{ width: '150px' }}
+                    style={"day1-card-style"}
                 />
             </div>
             <div className='down-temp-container'>

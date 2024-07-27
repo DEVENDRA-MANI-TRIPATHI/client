@@ -1,22 +1,22 @@
 .temp-container {
     width: 100vw;
-    min-height: 100vh; /* Ensure it covers the full viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 20px; /* Add padding to prevent overlap */
-    box-sizing: border-box; /* Ensure padding is included in width/height */
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .top-temp-container {
     width: 100%;
-    height: auto; /* Adjust height based on content */
+    height: auto;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping of items */
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 20px; /* Add padding for spacing */
-    margin-top: auto; /* Adjust this value to ensure space for the header */
+    padding: 20px;
+    margin-top: auto;
 }
 
 .down-temp-container {
@@ -25,11 +25,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0; /* Add padding for spacing */
-    box-sizing: border-box; /* Ensure padding is included in width/height */
+    padding: 20px 0;
+    box-sizing: border-box;
 }
 
-/* Ensure cards stack vertically and fit within container */
 .max-temp, .min-temp, .avg-temp {
     width: 400px;
     height: 150px;
@@ -42,7 +41,6 @@
     align-items: center;
 }
 
-/* Adjust styling for min-temp if needed */
 .min-temp {
     border: 2px solid #ccc;
 }
@@ -80,7 +78,6 @@
     margin-right: 5px;
 }
 
-/* Media Queries for responsiveness */
 @media (max-width: 1300px) {
     .max-temp, .min-temp, .avg-temp {
         width: 90%;
@@ -90,18 +87,19 @@
 
 @media (max-width: 768px) {
     .temp-container {
-        padding: 20px; /* Ensure padding for responsiveness */
+        padding: 20px;
     }
 
     .top-temp-container, .down-temp-container {
         flex-direction: column;
         width: 100%;
-        margin-bottom: 20px; /* Ensure space between sections */
+        margin-bottom: 20px;
     }
 
     .max-temp, .min-temp, .avg-temp {
         width: 90%;
         height: auto;
+        padding: 1%;
     }
 
     .tempcard-title, .tempcard-date, .tempcard-value {
@@ -112,16 +110,17 @@
 @media (max-width: 480px) {
     .top-temp-container, .down-temp-container {
         padding: 10px;
-        margin-bottom: 10px; /* Reduce margin for extra-small screens */
+        margin-bottom: auto;
     }
 
     .max-temp, .min-temp, .avg-temp {
         width: 100%;
-        height: 80px;
-        margin: 5px 0;
+        height: 100%;
+        margin: 1%;
     }
 
     .tempcard-title, .tempcard-date, .tempcard-value {
         font-size: 16px;
     }
+    
 }
