@@ -228,7 +228,7 @@ const Dashboard = () => {
                                         <span className="user-info">Name: {user.name || 'N/A'}</span>
                                         <span className="user-info"> Email: {user.email || 'N/A'}</span>
                                         <div className="user-actions">
-                                            <button onClick={() => handleUpdateUser(user.id)} className="action-button update-button">Update</button>
+                                            {/* <button onClick={() => handleUpdateUser(user.id)} className="action-button update-button">Update</button> */}
                                             <button onClick={() => handleDeleteUser(user.id)} className="action-button delete-button">Delete</button>
                                         </div>
                                     </li>
@@ -255,7 +255,7 @@ const Dashboard = () => {
                                         <span className="school-info">Aerobay Students: {school.noOfAerobayStudents || 'N/A'}</span>
                                         {/* <p className="school-info">Location: Lat {school.location.latitude}, Long {school.location.longitude}</p> */}
                                         <div className='school-actions'>
-                                            <button className='action-button update-button'>Update</button>
+                                            {/* <button className='action-button update-button'>Update</button> */}
                                             <button onClick={() => handleDeleteSchool(school.id)} className='action-button delete-button'>Delete</button>
 
                                         </div>
