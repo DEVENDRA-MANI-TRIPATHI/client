@@ -16,9 +16,12 @@ const getCurrentDate = () => {
 
 const formatTemperature = (value) => `${value}°C`;  // Adjust the unit as per your requirement (°C or °F)
 const formatHumidity = (value) => `${value}%`;
+const formatValue = (value, unit) => `${value} ${unit}`;
+
 
 const TempPage = () => {
     const [sensors, setSensors] = useState(null);
+    const [weatherData, setWeatherData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const { selectedStation } = useContext(StationContext);
@@ -46,7 +49,37 @@ const TempPage = () => {
         fetchData();
         return () => {
         };
-      }, [selectedStation]);
+    }, [selectedStation]);
+    
+    useEffect(() => {
+        if (!selectedStation) return;
+
+        const fetchWeatherData = async () => {
+            try {
+                const response = await fetch(`http://localhost:8080/api/weather-data/station/${selectedStation}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+
+                console.log("Fetched weather data:", data); // Log fetched weather data
+                
+                const entries = Object.entries(data).map(([date, details]) => ({
+                    date,
+                    DHT11: details.DHT11,
+                }));
+
+                setWeatherData(entries);
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+                setError(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchWeatherData();
+    }, [selectedStation]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -65,6 +98,8 @@ const TempPage = () => {
     const humidityValue = DHT11?.Humidity?.value;
     const humidityUnit = DHT11?.Humidity?.unit;
 
+    const additionalWeatherData = weatherData.slice(-6).reverse();
+
     return (
         <div className="temp-container">
             <video className='background-video' src={Weatherbackground} autoPlay loop muted />
@@ -79,72 +114,33 @@ const TempPage = () => {
                     humidity={formatHumidity(humidityValue)}
                     style={"day0-card-style"}
                 />
-                <WeatherCard
-                    imageSrc={tempimg1}
-                    imageClass={"day1"}
-                    date="JUN 06"
-                    temperature="45°C"
-                    // condition="PARTLY CLOUDY"
-                    humidity="29%"
-                    style={"day1-card-style"}
-                />
-                <WeatherCard
-                    imageSrc={tempimg1}
-                    imageClass={"day1"}
-                    // day="TODAY"
-                    date="JUN 06"
-                    temperature="45°C"
-                    // condition="PARTLY CLOUDY"
-                    humidity="29%"
-                    style={"day1-card-style"}
-                />
-                <WeatherCard
-                    imageSrc={tempimg1}
-                    imageClass={"day1"}
-                    // day="TODAY"
-                    date="JUN 06"
-                    temperature="45°C"
-                    // condition="PARTLY CLOUDY"
-                    humidity="29%"
-                    style={"day1-card-style"}
-                />
-                <WeatherCard
-                    imageSrc={tempimg1}
-                    imageClass={"day1"}
-                    // day="TODAY"
-                    date="JUN 06"
-                    temperature="45°C"
-                    // condition="PARTLY CLOUDY"
-                    humidity="29%"
-                    style={"day1-card-style"}
-                />
-                <WeatherCard
-                    imageSrc={tempimg1}
-                    imageClass={"day1"}
-                    // day="TODAY"
-                    date="JUN 06"
-                    temperature="45°C"
-                    // condition="PARTLY CLOUDY"
-                    humidity="29%"
-                    style={"day1-card-style"}
-                />
-                <WeatherCard
-                    imageSrc={tempimg1}
-                    imageClass={"day1"}
-                    // day="TODAY"
-                    date="JUN 06"
-                    temperature="45°C"
-                    // condition="PARTLY CLOUDY"
-                    humidity="29%"
-                    style={"day1-card-style"}
-                />
+                 {additionalWeatherData.map((dayData, index) => {
+                    // Check if DHT11 data is available for this day
+                    const temperature = dayData.DHT11?.Temperature?.value;
+                    const humidity = dayData.DHT11?.Humidity?.value;
+
+                    // Log data for each day card
+                    console.log(`Day ${index + 1} - Date: ${dayData.date}, Temperature: ${temperature}, Humidity: ${humidity}`);
+
+                    return (
+                        <WeatherCard
+                            key={index}
+                            imageSrc={tempimg1}
+                            imageClass={"day1"}
+                            date={dayData.date}
+                            temperature={formatValue(temperature, "°C")} // Display the temperature
+                            humidity={formatValue(humidity, "%")} // Display humidity
+                            style={"day-card-style"}
+                        />
+                    );
+                })}
             </div>
             <div className='down-temp-container'>
                 <div className='max-temp'>
                     <div class="tempcard-content">
                         <div class="tempcard-title">MAX. <br />TEMPERATURE</div>
                         <div class="tempcard-date">MAY 29</div>
-                        <div class="tempcard-value">210</div>
+                        <div class="tempcard-value">{temperatureValue}</div>
                     </div>
 
                 </div>

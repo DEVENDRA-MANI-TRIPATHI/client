@@ -17,12 +17,15 @@
 }
 
 .temp-temp {
-  font-size: 32px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .temp-date {
-  font-size: 24px;
+  /* padding: 10px; */
+  font-size: 15px;
   margin-top: 20px;
 }
 
@@ -43,7 +46,7 @@
   width: 100%;
 }
 
-.day1 {
+.day1{
   width: 100%;
 
 }
@@ -51,7 +54,7 @@
 .day0-card-style {
   width: 300px;
 }
-.day1-card-style {
+.day-card-style {
   width: 150px;
 }
 
@@ -76,7 +79,7 @@
     width: 100%;
   }
 
-  .day1-card-style {
+  .day-card-style {
     width: 100%;
     height: 100px;
     display: flex;
