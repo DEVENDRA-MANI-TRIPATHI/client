@@ -14,6 +14,12 @@ const getCurrentDate = () => {
     return today.toLocaleDateString('en-US', options).toUpperCase();
 };
 
+const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { month: 'short', day: '2-digit' };
+    return date.toLocaleDateString('en-US', options).toUpperCase();
+};
+
 const formatTemperature = (value) => `${value}°C`;  // Adjust the unit as per your requirement (°C or °F)
 const formatHumidity = (value) => `${value}%`;
 const formatValue = (value, unit) => `${value} ${unit}`;
@@ -100,6 +106,26 @@ const TempPage = () => {
 
     const additionalWeatherData = weatherData.slice(-6).reverse();
 
+     // Calculate min, max, and avg temperature and humidity
+     const temperatures = additionalWeatherData.map(dayData => dayData.DHT11?.Temperature?.value || 0);
+     const humidities = additionalWeatherData.map(dayData => dayData.DHT11?.Humidity?.value || 0);
+ 
+     const maxTemperature = Math.max(...temperatures);
+     const minTemperature = Math.min(...temperatures);
+     const avgTemperature = (temperatures.reduce((sum, value) => sum + value, 0) / temperatures.length) || 0;
+ 
+     const maxHumidity = Math.max(...humidities);
+     const minHumidity = Math.min(...humidities);
+    const avgHumidity = (humidities.reduce((sum, value) => sum + value, 0) / humidities.length) || 0;
+
+      // Get dates for max and min values
+      const maxTempDate = formatDate(additionalWeatherData.find(dayData => dayData.DHT11?.Temperature?.value === maxTemperature)?.date || '');
+      const minTempDate = formatDate(additionalWeatherData.find(dayData => dayData.DHT11?.Temperature?.value === minTemperature)?.date || '');
+      
+      // Get dates for max and min humidity
+      const maxHumidityDate = formatDate(additionalWeatherData.find(dayData => dayData.DHT11?.Humidity?.value === maxHumidity)?.date || '');
+      const minHumidityDate = formatDate(additionalWeatherData.find(dayData => dayData.DHT11?.Humidity?.value === minHumidity)?.date || '');
+
     return (
         <div className="temp-container">
             <video className='background-video' src={Weatherbackground} autoPlay loop muted />
@@ -127,7 +153,7 @@ const TempPage = () => {
                             key={index}
                             imageSrc={tempimg1}
                             imageClass={"day1"}
-                            date={dayData.date}
+                            date={formatDate(dayData.date)}
                             temperature={formatValue(temperature, "°C")} // Display the temperature
                             humidity={formatValue(humidity, "%")} // Display humidity
                             style={"day-card-style"}
@@ -139,23 +165,23 @@ const TempPage = () => {
                 <div className='max-temp'>
                     <div class="tempcard-content">
                         <div class="tempcard-title">MAX. <br />TEMPERATURE</div>
-                        <div class="tempcard-date">MAY 29</div>
-                        <div class="tempcard-value">{temperatureValue}</div>
+                        <div class="tempcard-date">{maxTempDate}</div>
+                        <div class="tempcard-value">{formatTemperature(maxTemperature)}</div>
                     </div>
 
                 </div>
                 <div className='min-temp'>
                     <div class="tempcard-content">
                         <div class="tempcard-title">MIN. <br />TEMPERATURE</div>
-                        <div class="tempcard-date">MAY 29</div>
-                        <div class="tempcard-value">210</div>
+                        <div class="tempcard-date">{minTempDate}</div>
+                        <div class="tempcard-value">{formatTemperature(minTemperature)}</div>
                     </div>
                 </div>
                 <div className='avg-temp'>
                     <div class="tempcard-content">
                         <div class="tempcard-title">AVG. <br />TEMPERATURE</div>
                         <div class="tempcard-date">MAY 29</div>
-                        <div class="tempcard-value">210</div>
+                        <div class="tempcard-value">{formatTemperature(avgTemperature.toFixed(2))}</div>
                     </div>
                 </div>
             </div>
@@ -163,23 +189,23 @@ const TempPage = () => {
                 <div className='max-temp'>
                     <div class="tempcard-content">
                         <div class="tempcard-title">MAX. <br />HUMIDITY</div>
-                        <div class="tempcard-date">MAY 29</div>
-                        <div class="tempcard-value">210</div>
+                        <div class="tempcard-date">{maxHumidityDate}</div>
+                        <div class="tempcard-value">{formatHumidity(maxHumidity)}</div>
                     </div>
 
                 </div>
                 <div className='min-temp'>
                     <div class="tempcard-content">
                         <div class="tempcard-title">MIN. <br />HUMIDITY</div>
-                        <div class="tempcard-date">MAY 29</div>
-                        <div class="tempcard-value">210</div>
+                        <div class="tempcard-date">{minHumidityDate}</div>
+                        <div class="tempcard-value">{formatHumidity(minHumidity)}</div>
                     </div>
                 </div>
                 <div className='avg-temp'>
                     <div class="tempcard-content">
                         <div class="tempcard-title">AVG. <br />HUMIDITY</div>
                         <div class="tempcard-date">MAY 29</div>
-                        <div class="tempcard-value">210</div>
+                        <div class="tempcard-value">{formatHumidity(avgHumidity.toFixed(2))}</div>
                     </div>
                 </div>
             </div>

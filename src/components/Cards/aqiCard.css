@@ -23,7 +23,7 @@
 }
 
 .aqi-value {
-    font-size: 48px;
+    font-size: 30px;
     font-weight: bold;
     color: #A3E045;
     /* Bright green color for AQI value */
@@ -31,7 +31,7 @@
 
 .aqi-date {
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     padding: 10px 0;
 }
 
